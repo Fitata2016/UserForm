@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+
 import './App.css';
+import axios from "axios";
+import {useEffect, useState} from "react";
+import UsersList from './components/UsersList';
+import UsersForm from './components/UsersForm';
 
 function App() {
+
+  const [users, setUsers] = useState([]);
+  const [userSelected, setUserSelected] = useState (null);
+
+useEffect(()=>{
+axios.get("https://users-crud1.herokuapp.com/users/")
+.then(res=> setUsers(res.data))
+},[])
+console.log(users)
+
+const getUsers = () => {
+  axios.get("https://users-crud1.herokuapp.com/users/")
+  .then(res => setUsers(res.data))
+}
+const deleteUser = id =>{
+  axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+  .then(()=> getUsers());
+}
+
+
+console.log(userSelected);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <UsersForm getUsers={getUsers} userSelected = {userSelected} setUserSelected = {setUserSelected}/>
+        <UsersList users={users} setUserSelected = {setUserSelected} deleteUser = {deleteUser}/>
     </div>
   );
 }

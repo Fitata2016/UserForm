@@ -1,38 +1,98 @@
-.App {
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+
+}.App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+form{
+  margin: 30px;
+}
+.name-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+.data-container input{
+  min-width: 30vw;
+  margin-bottom: 10px;
+}
+.name-container input{
+  min-width:30vw;
+}
+.input-container{
+  margin: 10px;
+}
+.input-container input{
+  background-color:  rgb(203, 162, 241);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.list-cointainer li{
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form button{
+  background-color: blueviolet;
+  color: #ffffff;
+  border: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 35vw;
+  font-size: 17px;
+}
+form h1{
+  text-align: left;
+  margin-left: 10vw;
+  margin-bottom: 20px;
+}
+ul{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: blueviolet;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.list-container h4{
+  margin: 5px;
+}
+.list-container p{
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.list-container li{
+  background-color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 70%;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.list-container li button{
+padding: 3px;
+background-color: transparent;
+border: none;
+}
+.list-container i{
+  font-size: 17px;
+}
+.list-container .red i{
+  color: red;
+  margin-right: 12px;
+}
+@media screen and (max-width: 415px){
+  .name-container{
+    display: flex;
+    flex-direction: column;
   }
 }
